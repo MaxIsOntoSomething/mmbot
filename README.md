@@ -1,4 +1,4 @@
-![Passivbot](docs/images/pbot_logo_full.svg)
+
 
 # Forked Repository: Passivbot
 
@@ -127,21 +127,9 @@ python3 -m jupyter lab
 - Python >= 3.8
 - [requirements.txt](requirements.txt) dependencies
 
-## Pre-optimized configurations
 
-Coming soon...
 
-See also https://pbconfigdb.scud.dedyn.io/
 
-## Documentation:
-
-For more detailed information about Passivbot, see documentation files here: [docs/](docs/)
-
-## Support
-
-[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/QAF2H2UmzZ)
-
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/passivbot_futures)
 
 ## License
 
