@@ -1,11 +1,12 @@
 ![Passivbot](docs/images/pbot_logo_full.svg)
 
-# Trading bot running on Bybit, OKX, Bitget, GateIO, Binance and Hyperliquid
+# Forked Repository: Passivbot
+
+This is a forked repository of Passivbot. I am trying to modify it with my own strategies.
 
 :warning: **Used at one's own risk** :warning:
 
 v7.2.12
-
 
 ## Overview
 
@@ -20,6 +21,7 @@ Passivbot's behavior may be backtested on historical price data, using the inclu
 Inspired by the Martingale betting strategy, the robot will make a small initial entry and double down on its losing positions multiple times to bring the average entry price closer to current price action. The orders are placed in a grid, ready to absorb sudden price movements. After each re-entry, the robot quickly updates its closing orders at a set take-profit markup. This way, if there is even a minor market reversal, or "bounce", the position can be closed in profit, and it starts over.  
 
 ### Trailing Orders
+
 In addition to grid-based entries and closes, Passivbot may be configured to utilize trailing entries and trailing closes.
 
 For trailing entries, the bot waits for the price to move beyond a specified threshold and then retrace by a defined percentage before placing a re-entry order. Similarly, for trailing closes, the bot waits before placing its closing orders until after the price has moved favorably by a threshold percentage and then retraced by a specified percentage. This may result in the bot locking in profits more effectively by exiting positions when the market shows signs of reversing instead of at a fixed distance from average entry price.
@@ -27,9 +29,11 @@ For trailing entries, the bot waits for the price to move beyond a specified thr
 Grid and trailing orders may be combined, such that the robot enters or closes a whole or a part of the position as grid orders and/or as trailing orders.
 
 ### Forager
+
 The Forager feature dynamically chooses the most volatile markets on which to open positions. Volatility is defined as the mean of the normalized relative range for the most recent 1m candles, i.e. `mean((ohlcv.high - ohlcv.low) / ohlcv.close)`.
 
 ### Unstucking Mechanism
+
 Passivbot manages underperforming, or "stuck", positions by realizing small losses over time. If multiple positions are stuck, the bot prioritizes positions with the smallest gap between the entry price and current market price for "unstucking". Losses are limited by ensuring that the account balance does not fall under a set percentage below the past peak balance.  
 
 ## Installation
@@ -45,8 +49,8 @@ git clone https://github.com/enarjord/passivbot.git
 cd passivbot
 ```
 
-
 ### Step 2: Install Rust
+
 Passivbot uses Rust for some of its components. Install Rust by following these steps:
 
 Visit https://www.rust-lang.org/tools/install
@@ -107,7 +111,6 @@ python3 src/main.py -u {account_name_from_api-keys.json}
 
 or make a new configuration file, using `configs/template.json` as a template, and start the bot with:
 
-
 ```sh
 python3 src/main.py path/to/config.json
 ```
@@ -139,43 +142,6 @@ For more detailed information about Passivbot, see documentation files here: [do
 [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/QAF2H2UmzZ)
 
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/passivbot_futures)
-
-## Third Party Links, Referrals and Tip Jar
-
-**Passivbot Manager Service:**  
-There is a paid manager service to run Passivbot on the user's behalf:  
-www.passivbotmanager.com  
-
-**Referrals:**  
-Signing up using these referrals is appreciated:  
-https://accounts.binance.com/register?ref=TII4B07C  
-https://partner.bybit.com/b/passivbot  
-https://partner.bitget.com/bg/Y8FU1W  
-https://www.okx.com/join/PASSIVBOT  (20% rebate)  
-
-**Note on Binance**  
-To support continued Passivbot development, please use a Binance account which  
-1) was created after 2024-09-21 and  
-2) either:  
-  a) was created without a referral link, or  
-  b) was created with referral ID: "TII4B07C".  
-                                                                                      
-Passivbot receives commissions from trades only for accounts meeting these criteria.  
-
-
-**BuyMeACoffee:**  
-https://www.buymeacoffee.com/enarjord  
-
-**Donations:**  
-If the robot is profitable, consider donating as showing gratitude for its development:  
-
-- USDT or USDC Binance Smart Chain BEP20:  
-0x4b7b5bf6bea228052b775c052843fde1c63ec530  
-- USDT or USDC Arbitrum One:  
-0x4b7b5bf6bea228052b775c052843fde1c63ec530  
-
-Bitcoin (BTC) via Strike:  
-enarjord@strike.me
 
 ## License
 
